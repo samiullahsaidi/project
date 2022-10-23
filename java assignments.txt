@@ -1,0 +1,92 @@
+import java.util.ArrayList;
+
+
+// Using Agrigation here
+class Operation{
+    int square(int n){
+        return n*n;
+    }
+}
+
+class Circle{
+    Operation op;
+    double pi=3.14;
+
+    double area(int radius){
+        op=new Operation();
+        int rsquare=op.square(radius);
+        return pi*rsquare;
+    }
+    // Using interface here...
+
+interface printable{
+    void print();
+}
+class  Sami implements printable{
+    public void print(){System.out.println("Hello");}
+
+}
+
+    //Using abstruction...
+abstract class Abstruction{
+void runing(){
+    System.out.println(" I am Normal Methode in abstract class");
+}
+abstract void Waiting();
+}
+//Inhertance is used here
+class Father extends Abstruction{
+    @Override
+    void Waiting() {
+        System.out.println("I am Abstract Methode of abstract class-----");
+    }
+
+    public void Father_feature(){
+        System.out.println("I am super class and Main class id my child ");
+    }
+}
+public class Main  extends  Father{
+    // Data fields Ecapsolation.....
+    private String sex;
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public  String getSex() {
+        return sex;
+    }
+
+    int id;
+    String name;
+    static  String clas_name="Mainclass";
+    //construction
+    Main(int id,String name){
+        //this Keyword is used here....
+        this.id=id;
+        this.name=name;
+        System.out.println("I am constructor of Main class  ");
+    }
+    public void Display(){
+        System.out.println("Your id is "+id);
+        System.out.println("Your name is"+name);
+        System.out.println("Your class name is "+clas_name);
+
+    }
+    public static void main(String[] args) {
+
+        Main obj=new Main(100,"Samiullahsaidi");
+
+        obj.Display();
+        obj.setSex("male");
+        System.out.println("get sex Methode is invoked Successfully...."+obj.getSex());
+
+
+           // Sami class invoked its Methodes
+
+        Sami obj1=new Sami();
+        obj1.print();
+
+
+    }
+}
